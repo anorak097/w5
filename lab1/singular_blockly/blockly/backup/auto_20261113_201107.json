@@ -1,0 +1,120 @@
+{
+  "workspace": {
+    "blocks": {
+      "languageVersion": 0,
+      "blocks": [
+        {
+          "type": "arduino_setup_loop",
+          "id": "^D]S*Qb+$mzf=:i::5`0",
+          "x": 21,
+          "y": 81,
+          "deletable": false,
+          "inputs": {
+            "SETUP": {
+              "block": {
+                "type": "servo_setup",
+                "id": "Drn.(vX)Fa*`)ax=HhI+",
+                "fields": {
+                  "VAR": "myServo",
+                  "PIN": "3"
+                }
+              }
+            },
+            "LOOP": {
+              "block": {
+                "type": "controls_for",
+                "id": "X0=IVI!v2T-c=#LoC`!K",
+                "fields": {
+                  "VAR": {
+                    "id": "_,gy}qB=Y%5[r2R{E:/4"
+                  }
+                },
+                "inputs": {
+                  "FROM": {
+                    "shadow": {
+                      "type": "math_number",
+                      "id": "%j2PwEPQD]$.^3YR=!y8",
+                      "fields": {
+                        "NUM": 0
+                      }
+                    }
+                  },
+                  "TO": {
+                    "shadow": {
+                      "type": "math_number",
+                      "id": "xw6L;o0$~ZD;-dI$mxc0",
+                      "fields": {
+                        "NUM": 180
+                      }
+                    }
+                  },
+                  "BY": {
+                    "shadow": {
+                      "type": "math_number",
+                      "id": "k:eI8b)H]+8XA$kEap7Y",
+                      "fields": {
+                        "NUM": 1
+                      }
+                    }
+                  },
+                  "DO": {
+                    "block": {
+                      "type": "servo_move",
+                      "id": "f4;K8l[8#:pcrS,;~_qv",
+                      "extraState": {
+                        "servo": "myServo"
+                      },
+                      "fields": {
+                        "VAR": "myServo"
+                      },
+                      "inputs": {
+                        "ANGLE": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "OWht?UP*x3MD2nu@b$}M",
+                            "fields": {
+                              "NUM": 90
+                            }
+                          },
+                          "block": {
+                            "type": "variables_get",
+                            "id": "iwszYFVWw[bkSk|#u/zk",
+                            "fields": {
+                              "VAR": {
+                                "id": "_,gy}qB=Y%5[r2R{E:/4"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "arduino_delay",
+                          "id": "mC!V-*ISD2m8EJNzCmDo",
+                          "fields": {
+                            "TIME": 50
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "variables": [
+      {
+        "name": "i",
+        "id": "LNbeU%dU^AUBOm^7Vh^t"
+      },
+      {
+        "name": "a",
+        "id": "_,gy}qB=Y%5[r2R{E:/4"
+      }
+    ]
+  },
+  "board": "uno"
+}
