@@ -1,37 +1,20 @@
-#include <SPI.h>
-#include <MFRC522.h>
+#include <Servo.h>
 
-#define SS_PIN 10
-#define RST_PIN 9
+Servo myServo;
 
-MFRC522 rfid(SS_PIN, RST_PIN);
-
-byte authorizedUID[4] = {0x01, 0x02, 0x03, 0x04};
-
-void setup() {
-    Serial.begin(9600);
-    SPI.begin();
-    rfid.PCD_Init();
+void setup()
+{
+	// put your setup code here, to run once:
+	myServo.attach(3);
 }
 
-void loop() {
-    if (!rfid.PICC_IsNewCardPresent()) return;
-    if (!rfid.PICC_ReadCardSerial()) return;
-
-    bool isAuthorized = true;
-    for (byte i = 0; i < 4; i++) {
-        if (rfid.uid.uidByte[i] != authorizedUID[i]) {
-            isAuthorized = false;
-            break;
-        }
-    }
-
-    if (isAuthorized) {
-        Serial.println("驗證成功");
-    } else {
-        Serial.println("驗證失敗");
-    }
-
-    rfid.PICC_HaltA();
-    rfid.PCD_StopCrypto1();
+void loop()
+{
+	// put your main code here, to run repeatedly:
+	for (int a = 0; a <= 180; a += 1)
+	{
+		// myServo.write(constrain(a, 0, 180));
+		myServo.write(a);
+		delay(50);
+	}
 }
